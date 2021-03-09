@@ -13,7 +13,8 @@
      "Novembre",
      "Décembre"
  );
- print_r($month);
+//  year
+$yearNow  = date("Y");
 
  $dayWeek = array(
      1 => "Lundi",
@@ -48,19 +49,15 @@
 <div class="grid-container">
   <div class="date">     
     <!-- Suppr -->
-  <?php echo date("M, Y");?>
-  <!-- Suppr -->
-  <?php echo  "{$dayNumber}"?>
+    <?php echo date("M, Y");?>
+    <!-- Suppr -->
+    <?php echo  "{$dayNumber}"?>
 
 <!-- Boucle du nombre de jour dans le mois -->
-  <?php 
-  for ($day; $day <= $dayNumber; $day++) {
-    echo $day;
-}?>
-  <?php 
-  for ($month; $month <= 12; $month[]++) {
-    echo $month;
-}?>
+    <?php 
+      for ($day; $day <= $dayNumber; $day++) {
+      echo $day;
+  }?>
   </div>
   
   <!-- Flèche -->
@@ -74,12 +71,13 @@
   <!-- Mois -->
   <div class="month">
     <form action="" method="GET">
+    <label for="month"></label>
     <select name="month" id="month">
-      <label for="month">Choisi un mois</label>
+      
       <!-- Boucle mois -->
         <?php foreach ($month as $index => $name) : ?> 
 <!-- " : " et endforeach permet d'écrire plus simplement le code html  -->
-          <option value="$name"><?php echo strtolower($name) ?></option> 
+          <option value="<?php echo strtolower($name) ?>"><?php echo $name ?></option> 
         <?php echo $name ?>
         <?php endforeach;?>
       </select> 
@@ -88,9 +86,11 @@
 
   <!-- Année -->
   <div class="years">
-    <label for="years">Choisi une année</label>
+    <label for="years"></label>
       <select name="years" id="years">
-      <option value="2021"></option>
+        <?php for ($year = $yearNow - 100; $year <= $yearNow + 100; $year++) : ?>
+          <option value="<?php echo $year ?>"> <?php echo $year ?></option>;
+        <?php endfor; ?>
       </select> 
   </div>
 
@@ -100,10 +100,9 @@
 
 <!-- Boucle pour les jours de la semaine -->
 <?php foreach ($dayWeek as $index => $name) : ?>
-
- <div class="<?php echo strtolower($name) ?>">
- <?php echo $name ?>
-</div>
+  <div class="<?php echo strtolower($name) ?>">
+    <?php echo $name ?>
+  </div>
 <?php endforeach;?>
 
 
