@@ -1,5 +1,6 @@
 <?php $month = array(
-     "Janvier",
+
+     1 =>"Janvier",
      "Février",
      "Mars",
      "Avril",
@@ -12,15 +13,17 @@
      "Novembre",
      "Décembre"
  );
+ print_r($month);
 
  $dayWeek = array(
-     "Lundi",
+     1 => "Lundi",
      "Mardi",
      "Mercredi",
      "Jeudi",
      "vendredi",
      "Samedi",
      "Dimanche");
+
      // Mois et année récupération
      $monthDate = date("m");
       $yearsDate = date("Y");
@@ -58,38 +61,52 @@
   for ($month; $month <= 12; $month[]++) {
     echo $month;
 }?>
-  
   </div>
+  
+  <!-- Flèche -->
   <div class="flecheD">
     <img src="https://img.icons8.com/flat-round/64/000000/arrow-right.png"/>
   </div>
   <div class="flecheG">
     <img src="https://img.icons8.com/flat-round/64/000000/arrow-left.png"/>
   </div>
+
+  <!-- Mois -->
   <div class="month">
     <form action="" method="GET">
+    <select name="month" id="month">
       <label for="month">Choisi un mois</label>
-      <select name="month" id="month">
-      <option value="January"></option>
+      <!-- Boucle mois -->
+        <?php foreach ($month as $index => $name) : ?> 
+<!-- " : " et endforeach permet d'écrire plus simplement le code html  -->
+          <option value="$name"><?php echo strtolower($name) ?></option> 
+        <?php echo $name ?>
+        <?php endforeach;?>
       </select> 
     </form>
   </div>   
+
+  <!-- Année -->
   <div class="years">
-  <label for="years">Choisi une année</label>
+    <label for="years">Choisi une année</label>
       <select name="years" id="years">
       <option value="2021"></option>
       </select> 
   </div>
+
   <div class="valide">
     <button class="myButton" type="button">Validé</button>
 </div>
-  <div class="lundi"><?php echo $dayWeek[0] ?></div>
-  <div class="mardi"><?php echo $dayWeek[1] ?></div>
-  <div class="mercredi"><?php echo $dayWeek[2] ?></div>
-  <div class="jeudi"><?php echo $dayWeek[3] ?></div>
-  <div class="vendredi"><?php echo $dayWeek[4] ?></div>
-  <div class="samedi"><?php echo $dayWeek[5] ?></div>
-  <div class="dimanche"><?php echo $dayWeek[6] ?></div>
+
+<!-- Boucle pour les jours de la semaine -->
+<?php foreach ($dayWeek as $index => $name) : ?>
+
+ <div class="<?php echo strtolower($name) ?>">
+ <?php echo $name ?>
+</div>
+<?php endforeach;?>
+
+
   <div class="un"></div>
   <div class="deux"></div>
   <div class="trois"></div>
