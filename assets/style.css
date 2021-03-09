@@ -1,3 +1,63 @@
-body {
-margin: 0px;
-}   
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". flecheG date date date flecheD ."
+    ". month month years years valide ."
+    "lundi mardi mercredi jeudi vendredi samedi dimanche"
+    "un deux trois quatre cinq six sept"
+    "huit neuf dix onze douze treize quatorze"
+    "quinze seize dix-sept dix-huit dix-neuf vingts vingt-un"
+    "vingt-deux vingt-trois vingt-quatre vingt-cinq vingt-six vingt-sept vingt-huit"
+    "vingt-neuf trente trente-un . . . .";
+}
+.date { grid-area: date; }
+.flecheG { grid-area: flecheG; }
+.flecheD { grid-area: flecheD; }
+.month { grid-area: month; }
+.years { grid-area: years; }
+.valide { grid-area: valide; }
+.lundi { grid-area: lundi; }
+.mardi { grid-area: mardi; }
+.mercredi { grid-area: mercredi; }
+.jeudi { grid-area: jeudi; }
+.vendredi { grid-area: vendredi; }
+.samedi { grid-area: samedi; }
+.dimanche { grid-area: dimanche; }
+.un { grid-area: un; }
+.deux { grid-area: deux; }
+.trois { grid-area: trois; }
+.quatre { grid-area: quatre; }
+.cinq { grid-area: cinq; }
+.six { grid-area: six; }
+.sept { grid-area: sept; }
+.huit { grid-area: huit; }
+.neuf { grid-area: neuf; }
+.dix { grid-area: dix; }
+.onze { grid-area: onze; }
+.douze { grid-area: douze; }
+.treize { grid-area: treize; }
+.quatorze { grid-area: quatorze; }
+.quinze { grid-area: quinze; }
+.seize { grid-area: seize; }
+.dix-sept { grid-area: dix-sept; }
+.dix-huit { grid-area: dix-huit; }
+.dix-neuf { grid-area: dix-neuf; }
+.vingts { grid-area: vingts; }
+.vingt-un { grid-area: vingt-un; }
+.vingt-deux { grid-area: vingt-deux; }
+.vingt-trois { grid-area: vingt-trois; }
+.vingt-quatre { grid-area: vingt-quatre; }
+.vingt-cinq { grid-area: vingt-cinq; }
+.vingt-six { grid-area: vingt-six; }
+.vingt-sept { grid-area: vingt-sept; }
+.vingt-huit { grid-area: vingt-huit; }
+.vingt-neuf { grid-area: vingt-neuf; }
+.trente { grid-area: trente; }
+.trente-un { grid-area: trente-un; }
+
+
+
+        
