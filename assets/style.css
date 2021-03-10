@@ -1,6 +1,9 @@
+body {
+  background-color: #00A8E8;
+}
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
@@ -12,6 +15,13 @@
     "quinze seize dix-sept dix-huit dix-neuf vingts vingt-un"
     "vingt-deux vingt-trois vingt-quatre vingt-cinq vingt-six vingt-sept vingt-huit"
     "vingt-neuf trente trente-un . . . .";
+
+    background-color: #003459;
+    color: white;
+
+    border-radius: 20px;
+    text-align: center;
+    font-size: 13px;
 }
 .date { grid-area: date; }
 .flecheG { grid-area: flecheG; }

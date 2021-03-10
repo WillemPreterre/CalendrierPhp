@@ -1,4 +1,28 @@
-<?php $month = array(
+<?php 
+print_r($_GET);
+//  year
+$yearNow  = date("Y");
+// $monthDate = date("m");
+
+if( isset($_GET['month'] ) ) {
+  $monthDate = $_GET['month'];
+
+}else {
+  $monthDate = date("n");
+}
+
+if( isset($_GET['years'])) {
+  $yearNow = $_GET['years'];
+}else {
+  $yearNow = date("Y");
+}
+
+// Détermine si une variable est déclarée et est différente de null
+
+
+
+
+$month = array(
 
      1 =>"Janvier",
      "Février",
@@ -13,8 +37,7 @@
      "Novembre",
      "Décembre"
  );
-//  year
-$yearNow  = date("Y");
+
 
  $dayWeek = array(
      1 => "Lundi",
@@ -26,14 +49,15 @@ $yearNow  = date("Y");
      "Dimanche");
 
      // Mois et année récupération
-     $monthDate = date("m");
+
       $yearsDate = date("Y");
 
       // récupération du nombre de jour dans le mois actuel
       $dayNumber = cal_days_in_month(CAL_GREGORIAN, $monthDate, $yearsDate);
 
       //récupération jour actuel
-      $day = date("n");
+      $day = date("j");
+
  ?>
 
 <!DOCTYPE html>
@@ -48,16 +72,13 @@ $yearNow  = date("Y");
 <body>
 <div class="grid-container">
   <div class="date">     
-    <!-- Suppr -->
-    <?php echo date("M, Y");?>
-    <!-- Suppr -->
-    <?php echo  "{$dayNumber}"?>
+
+    <?php echo $month[$monthDate] ;?>
+
+
 
 <!-- Boucle du nombre de jour dans le mois -->
-    <?php 
-      for ($day; $day <= $dayNumber; $day++) {
-      echo $day;
-  }?>
+
   </div>
   
   <!-- Flèche -->
@@ -69,35 +90,39 @@ $yearNow  = date("Y");
   </div>
 
   <!-- Mois -->
+  <form action="" method="get">
   <div class="month">
-    <form action="" method="GET">
-    <label for="month"></label>
-    <select name="month" id="month">
-      
+   
+    <label for="monthNumber"></label>
+    <select name="month" id="monthNumber">
+      <!-- " : " et endforeach permet d'écrire plus simplement le code html  -->
       <!-- Boucle mois -->
         <?php foreach ($month as $index => $name) : ?> 
-<!-- " : " et endforeach permet d'écrire plus simplement le code html  -->
-          <option value="<?php echo strtolower($name) ?>"><?php echo $name ?></option> 
-        <?php echo $name ?>
+
+          <option value="<?php echo $index ?>"><?php echo $name ?></option> 
+
         <?php endforeach;?>
       </select> 
-    </form>
+
   </div>   
+
 
   <!-- Année -->
   <div class="years">
-    <label for="years"></label>
-      <select name="years" id="years">
-        <?php for ($year = $yearNow - 100; $year <= $yearNow + 100; $year++) : ?>
-          <option value="<?php echo $year ?>"> <?php echo $year ?></option>;
-        <?php endfor; ?>
-      </select> 
+
+      <label for="yearsNumber"></label>
+        <select name="years" id="yearsNumber">
+          <?php for ($year = $yearNow - 100; $year <= $yearNow + 100; $year++) : ?>
+            <option value="<?php echo $year ?>"> <?php echo $year ?></option>;
+          <?php endfor; ?>
+        </select> 
+
   </div>
 
   <div class="valide">
-    <button class="myButton" type="button">Validé</button>
+    <input type="submit" class="myButton" value="Validé">
 </div>
-
+</form>
 <!-- Boucle pour les jours de la semaine -->
 <?php foreach ($dayWeek as $index => $name) : ?>
   <div class="<?php echo strtolower($name) ?>">
@@ -105,38 +130,16 @@ $yearNow  = date("Y");
   </div>
 <?php endforeach;?>
 
+<?php 
+      // for ($day; $day <= $dayNumber; $day++) {
+      // echo $day;
+      for ($day = 1; $day <= 30 ; $day++) : ?>
+        <div class="<?php echo strtolower($day) ?>">
+        <?php echo $day ?>
+        </div>
+        <?php endfor;?>
 
-  <div class="un"></div>
-  <div class="deux"></div>
-  <div class="trois"></div>
-  <div class="quatre"></div>
-  <div class="cinq"></div>
-  <div class="six"></div>
-  <div class="sept"></div>
-  <div class="huit"></div>
-  <div class="neuf"></div>
-  <div class="dix"></div>
-  <div class="onze"></div>
-  <div class="douze"></div>
-  <div class="treize"></div>
-  <div class="quatorze"></div>
-  <div class="quinze"></div>
-  <div class="seize"></div>
-  <div class="dix-sept"></div>
-  <div class="dix-huit"></div>
-  <div class="dix-neuf"></div>
-  <div class="vingts"></div>
-  <div class="vingt-un"></div>
-  <div class="vingt-deux"></div>
-  <div class="vingt-trois"></div>
-  <div class="vingt-quatre"></div>
-  <div class="vingt-cinq"></div>
-  <div class="vingt-six"></div>
-  <div class="vingt-sept"></div>
-  <div class="vingt-huit"></div>
-  <div class="vingt-neuf"></div>
-  <div class="trente"></div>
-  <div class="trente-un"></div>
+  
 </div>
 </body>
 </html>
